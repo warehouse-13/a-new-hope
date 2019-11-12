@@ -68,9 +68,8 @@ let g:deoplete#enable_at_startup = 1
 
 """ vim-startify
 let g:startify_custom_header = map(systemlist('fortune | grootsay'), '"               ". v:val')
-
-""" vim-airline
-let g:airline_theme='jellybeans'
+let g:startify_change_to_dir = 0
+let g:startify_change_to_vcs_root = 0
 
 """ ultisnips
 let g:UltiSnipsExpandTrigger='<c-j>'
