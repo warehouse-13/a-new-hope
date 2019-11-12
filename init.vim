@@ -111,6 +111,13 @@ set number
 set cursorline
 set mouse=a
 set undofile
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set ignorecase
+set smartcase
+set splitbelow
+set splitright
 
 " Mappings
 
