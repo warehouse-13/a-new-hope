@@ -24,8 +24,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dense-analysis/ale'
 Plug 'ruanyl/vim-gh-line'
 Plug 'mhinz/vim-signify'
-Plug 'SirVer/ultisnips'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'SirVer/ultisnips'
 Plug 'benmills/vimux'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'hashivim/vim-terraform'
@@ -57,9 +57,8 @@ let g:airline_theme='jellybeans'
 """ ultisnips
 let g:UltiSnipsExpandTrigger='<c-j>'
 let g:UltiSnipsListSnippets='<c-tab>'
-let g:UltiSnipsJumpForwardTrigger='<c-j>'
-let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-
+let g:UltiSnipsJumpForwardTrigger='<c-k>'
+let g:UltiSnipsJumpBackwardTrigger='<c-j>'
 """ vim-test
 if empty($TMUX)
   let g:test#strategy = 'neoterm'
