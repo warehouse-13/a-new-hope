@@ -38,8 +38,7 @@ call plug#end()
 
 """ vim-go
 let g:go_def_mode='gopls'
-let g:go_fmt_command='goimports'
-let g:go_fmt_fail_silently = 1
+let g:go_fmt_autosave = 0
 let g:go_info_mode='gopls'
 let g:go_bin_path = $HOME . '/.local/share/nvim/go/bin'
 let $PATH = g:go_bin_path . ':' . $PATH
@@ -103,10 +102,25 @@ endfunction
 let g:test#custom_transformations = {'scripttest': function('ScriptTestTransform')}
 let g:test#transformation = 'scripttest'
 
+" vim-stay
+set viewoptions=cursor,folds,slash,unix
+
+" ALE
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+let g:ale_sign_column_always = 1
+" let g:ale_linters = { 'go': [ 'gofmt', 'go vet', 'staticcheck'] }
+let g:ale_linters = { 'go': ['gopls'] }
+let g:ale_fixers = { 'go': ['goimports'] }
+let g:ale_fix_on_save = 1
+
 " Colour scheme
 colorscheme jellybeans
 
 " Settings
+
 set number
 set cursorline
 set mouse=a
