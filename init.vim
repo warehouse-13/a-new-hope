@@ -132,6 +132,7 @@ set ignorecase
 set smartcase
 set splitbelow
 set splitright
+set hidden
 
 " Mappings
 
