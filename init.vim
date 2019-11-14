@@ -74,6 +74,7 @@ let g:go_highlight_variable_declarations = 1
 
 """ deoplete.vim
 let g:deoplete#enable_at_startup = 1
+autocmd VimEnter * inoremap <expr> <cr> ((pumvisible()) ? (deoplete#close_popup()) : ("\<cr>"))
 
 """ vim-startify
 let g:startify_custom_header = map(systemlist('fortune | grootsay'), '"               ". v:val')
