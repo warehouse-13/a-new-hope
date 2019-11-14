@@ -47,9 +47,10 @@ colorscheme onedark
 " Plugins
 
 """ vim-go
-let g:go_def_mode='gopls'
 let g:go_fmt_autosave = 0
 let g:go_info_mode='gopls'
+let g:go_def_mapping_enabled = 0
+let g:go_doc_popup_window = 1
 let g:go_bin_path = $HOME . '/.local/share/nvim/go/bin'
 let $PATH = g:go_bin_path . ':' . $PATH
 call mkdir(g:go_bin_path, 'p', 0755)
@@ -79,6 +80,13 @@ let g:deoplete#enable_at_startup = 1
 let g:startify_custom_header = map(systemlist('fortune | grootsay'), '"               ". v:val')
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 0
+let g:startify_lists = [
+                  \ { 'type': 'dir',       'header': [   'MRU ' . getcwd()] },
+                  \ { 'type': 'files',     'header': [   'MRU']             },
+                  \ { 'type': 'sessions',  'header': [   'Sessions']        },
+                  \ { 'type': 'bookmarks', 'header': [   'Bookmarks']       },
+                  \ { 'type': 'commands',  'header': [   'Commands']        },
+                  \ ]
 
 """ ultisnips
 let g:UltiSnipsExpandTrigger='<c-j>'
@@ -127,13 +135,14 @@ let g:ale_go_golangci_lint_package = 1
 let g:ale_go_golangci_lint_options = '--fast'
 let g:ale_fixers = { 'go': ['goimports'] }
 let g:ale_fix_on_save = 1
+let g:ale_echo_cursor = 0
 let g:ale_virtualtext_cursor = 1
-let g:ale_virtualtext_prefix = '⚠  '
-highlight link ALEVirtualTextStyleError   ErrorMsg
-highlight link ALEVirtualTextStyleWarning WarningMsg
+let g:ale_virtualtext_prefix = '▬▶  '
 highlight link ALEVirtualTextError        ErrorMsg
+highlight link ALEVirtualTextStyleError   ALEVirtualTextError
 highlight link ALEVirtualTextWarning      WarningMsg
-highlight link ALEVirtualTextInfo         Comment
+highlight link ALEVirtualTextStyleWarning ALEVirtualTextWarning
+highlight link ALEVirtualTextInfo         ALEVirtualTextWarning
 
 """ fzf
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
@@ -141,7 +150,13 @@ let g:fzf_command_prefix = 'FZF'
 
 " Settings
 
+set autoread
+set iskeyword+=$,@,-
 set number
+set scrolloff=5
+set showmatch
+set matchtime=1
+set inccommand=nosplit
 set cursorline
 set mouse=a
 set undofile
@@ -153,6 +168,7 @@ set smartcase
 set splitbelow
 set splitright
 set hidden
+set pumheight=20
 
 " Mappings
 
@@ -184,9 +200,22 @@ vnoremap ;; <Esc>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+""" keep on indenting
+vnoremap > >gv
+vnoremap < <gv
+
+""" code navigation
+nnoremap gd :ALEGoToDefinition<CR>
+nnoremap gt :ALEGoToTypeDefinition<CR>
+nnoremap gi :GoImplements<CR>
+nnoremap gr :GoReferrers<CR>
+
 " Autocmds
 
-autocmd VimEnter * inoremap <expr> <cr> ((pumvisible()) ? (deoplete#close_popup()) : ("\<cr>"))
+augroup popups#cr
+  autocmd!
+  autocmd VimEnter * inoremap <expr> <cr> ((pumvisible()) ? (deoplete#close_popup()) : ("\<cr>"))
+augroup END
 
 " Leader
 
