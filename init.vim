@@ -238,7 +238,7 @@ nnoremap <silent> <leader>ff :FZFFiles<cr>
 nnoremap <silent> <leader>fo :FZFBuffers<cr>
 nnoremap <silent> <leader>fm :FZFHistory<cr>
 let g:lmap.s = { 'name': 'Search' }
-nnoremap <silent> <leader>sg :Grepper<cr>
+nnoremap <silent> <leader>sg :Grepper -tool rg<cr>
 let g:lmap.l = { 'name': 'Golang' }
 nnoremap <silent> <leader>lt :TagbarToggle<cr>
 nnoremap <silent> <leader>lr :GoRename<cr>
