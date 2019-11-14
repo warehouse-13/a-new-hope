@@ -14,7 +14,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'nanotech/jellybeans.vim'
+Plug 'joshdick/onedark.vim'
 Plug 'mhinz/vim-startify'
 Plug 'hecal3/vim-leader-guide'
 Plug 'benmills/vimux'
@@ -33,6 +33,11 @@ Plug 'mhinz/vim-grepper'
 Plug 'zhimsel/vim-stay'
 
 call plug#end()
+
+" Colour scheme
+
+set termguicolors
+colorscheme onedark
 
 " Plugins
 
@@ -75,6 +80,7 @@ let g:UltiSnipsExpandTrigger='<c-j>'
 let g:UltiSnipsListSnippets='<c-tab>'
 let g:UltiSnipsJumpForwardTrigger='<c-k>'
 let g:UltiSnipsJumpBackwardTrigger='<c-j>'
+
 """ vim-test
 if empty($TMUX)
   let g:test#strategy = 'neoterm'
@@ -102,22 +108,28 @@ endfunction
 let g:test#custom_transformations = {'scripttest': function('ScriptTestTransform')}
 let g:test#transformation = 'scripttest'
 
-" vim-stay
+""" vim-stay
 set viewoptions=cursor,folds,slash,unix
 
-" ALE
+""" ALE
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 let g:ale_sign_column_always = 1
-" let g:ale_linters = { 'go': [ 'gofmt', 'go vet', 'staticcheck'] }
 let g:ale_linters = { 'go': ['gopls'] }
 let g:ale_fixers = { 'go': ['goimports'] }
 let g:ale_fix_on_save = 1
+let g:ale_virtualtext_cursor = 1
+let g:ale_virtualtext_prefix = '⚠  '
+highlight link ALEVirtualTextStyleError   ErrorMsg
+highlight link ALEVirtualTextStyleWarning WarningMsg
+highlight link ALEVirtualTextError        ErrorMsg
+highlight link ALEVirtualTextWarning      WarningMsg
+highlight link ALEVirtualTextInfo         Comment
 
-" Colour scheme
-colorscheme jellybeans
+""" fzf
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 
 " Settings
 
@@ -165,6 +177,7 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Leader
+
 let g:mapleader=' '
 let g:maplocalleader = ','
 
@@ -191,7 +204,5 @@ nnoremap <silent> <leader>lr :GoRename<cr>
 let g:lmap.g = { 'name': 'GitHub' }
 
 " TODO
-" fzf external program?
-" ALE warning about no godoc
 " select with enter in deoplete
 " vim-multi?
