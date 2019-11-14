@@ -74,7 +74,6 @@ let g:go_highlight_variable_declarations = 1
 
 """ deoplete.vim
 let g:deoplete#enable_at_startup = 1
-autocmd VimEnter * inoremap <expr> <cr> ((pumvisible()) ? (deoplete#close_popup()) : ("\<cr>"))
 
 """ vim-startify
 let g:startify_custom_header = map(systemlist('fortune | grootsay'), '"               ". v:val')
@@ -138,6 +137,7 @@ highlight link ALEVirtualTextInfo         Comment
 
 """ fzf
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+let g:fzf_command_prefix = 'FZF'
 
 " Settings
 
@@ -157,7 +157,7 @@ set hidden
 " Mappings
 
 """ fuzzy-find files
-nnoremap <silent> <c-p> :Files<cr>
+nnoremap <silent> <c-p> :FZFFiles<cr>
 
 """ clear search highligt
 nnoremap <silent> <Esc><Esc> :nohl<cr>
@@ -183,6 +183,10 @@ vnoremap ;; <Esc>
 """ complete with tab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Autocmds
+
+autocmd VimEnter * inoremap <expr> <cr> ((pumvisible()) ? (deoplete#close_popup()) : ("\<cr>"))
 
 " Leader
 
@@ -210,7 +214,3 @@ let g:lmap.l = { 'name': 'Golang' }
 nnoremap <silent> <leader>lt :TagbarToggle<cr>
 nnoremap <silent> <leader>lr :GoRename<cr>
 let g:lmap.g = { 'name': 'GitHub' }
-
-" TODO
-" select with enter in deoplete
-" vim-multi?
