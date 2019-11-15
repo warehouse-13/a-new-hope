@@ -49,7 +49,6 @@ colorscheme onedark
 """ vim-go
 let g:go_fmt_autosave = 0
 let g:go_info_mode='gopls'
-let g:go_def_mapping_enabled = 0
 let g:go_doc_popup_window = 1
 let g:go_bin_path = $HOME . '/.local/share/nvim/go/bin'
 
@@ -203,10 +202,9 @@ vnoremap > >gv
 vnoremap < <gv
 
 """ code navigation
-nnoremap gd :ALEGoToDefinition<CR>
-nnoremap gt :ALEGoToTypeDefinition<CR>
-nnoremap gi :GoImplements<CR>
-nnoremap gr :GoReferrers<CR>
+nnoremap gy :GoDefType<cr>
+nnoremap gi :GoImplements<cr>
+nnoremap gr :GoReferrers<cr>
 
 " Autocmds
 
