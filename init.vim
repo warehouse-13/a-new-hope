@@ -260,5 +260,5 @@ nnoremap <silent> <leader>sg :execute 'Rg ' . input('Search for --> ')<CR>
 nnoremap <silent> <leader>sw :execute 'Rg' expand('<cword>')<CR>
 let g:lmap.l = { 'name': 'Golang' }
 nnoremap <silent> <leader>lt :TagbarToggle<cr>
-nnoremap <silent> <leader>lr :GoRename<cr>
+nnoremap <silent> <leader>lr :ALERename<cr>
 let g:lmap.g = { 'name': 'GitHub' }
