@@ -24,7 +24,6 @@ Plug 'mhinz/vim-startify'
 Plug 'hecal3/vim-leader-guide'
 Plug 'benmills/vimux'
 Plug 'janko/vim-test'
-Plug 'majutsushi/tagbar'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dense-analysis/ale'
 Plug 'ruanyl/vim-gh-line'
@@ -35,6 +34,7 @@ Plug 'benmills/vimux'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'hashivim/vim-terraform'
 Plug 'zhimsel/vim-stay'
+Plug 'liuchengxu/vista.vim'
 
 call plug#end()
 
@@ -164,6 +164,9 @@ augroup fzf
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 augroup END
 
+""" vista.vim
+let g:vista_default_executive = 'ale'
+let g:vista#renderer#enable_icon = 0
 
 " Settings
 
@@ -258,6 +261,6 @@ nnoremap <silent> <leader>sg :execute 'Rg ' . input('Search for --> ')<CR>
 " Search the word under the cursor
 nnoremap <silent> <leader>sw :execute 'Rg' expand('<cword>')<CR>
 let g:lmap.l = { 'name': 'Golang' }
-nnoremap <silent> <leader>lt :TagbarToggle<cr>
+nnoremap <silent> <leader>lt :Vista!!<cr>
 nnoremap <silent> <leader>lr :ALERename<cr>
 let g:lmap.g = { 'name': 'GitHub' }
