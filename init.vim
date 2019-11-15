@@ -52,8 +52,6 @@ let g:go_info_mode='gopls'
 let g:go_def_mapping_enabled = 0
 let g:go_doc_popup_window = 1
 let g:go_bin_path = $HOME . '/.local/share/nvim/go/bin'
-let $PATH = g:go_bin_path . ':' . $PATH
-call mkdir(g:go_bin_path, 'p', 0755)
 
 let g:go_highlight_array_whitespace_error = 1
 let g:go_highlight_chan_whitespace_error = 1
