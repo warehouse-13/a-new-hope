@@ -144,6 +144,27 @@ highlight link ALEVirtualTextInfo         ALEVirtualTextWarning
 """ fzf
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 let g:fzf_command_prefix = 'FZF'
+let g:fzf_layout = { 'down': '~30%' }
+let g:fzf_buffers_jump = 1
+
+"""" Show preview when searching files
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+"""" Use Rg for searching for contents and show preview
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!vendor/" '.shellescape(<q-args>), 1,
+  \    fzf#vim#with_preview({'down': '60%', 'options': '--bind alt-down:preview-down --bind alt-up:preview-up'},'right:50%', '?'),
+  \   <bang>0)
+
+"""" fzf: hide the statusline of the containing buffer
+augroup fzf
+  autocmd!
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+augroup END
+
 
 " Settings
 
@@ -234,7 +255,9 @@ nnoremap <silent> <leader>ff :FZFFiles<cr>
 nnoremap <silent> <leader>fo :FZFBuffers<cr>
 nnoremap <silent> <leader>fm :FZFHistory<cr>
 let g:lmap.s = { 'name': 'Search' }
-nnoremap <silent> <leader>sg :Grepper -tool rg<cr>
+nnoremap <silent> <leader>sg :execute 'Rg ' . input('Search for --> ')<CR>
+" Search the word under the cursor
+nnoremap <silent> <leader>sw :execute 'Rg' expand('<cword>')<CR>
 let g:lmap.l = { 'name': 'Golang' }
 nnoremap <silent> <leader>lt :TagbarToggle<cr>
 nnoremap <silent> <leader>lr :GoRename<cr>
