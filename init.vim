@@ -34,7 +34,6 @@ Plug 'SirVer/ultisnips'
 Plug 'benmills/vimux'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'hashivim/vim-terraform'
-Plug 'mhinz/vim-grepper'
 Plug 'zhimsel/vim-stay'
 
 call plug#end()
