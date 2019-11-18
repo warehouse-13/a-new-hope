@@ -228,6 +228,10 @@ nnoremap gy :GoDefType<cr>
 nnoremap gi :GoImplements<cr>
 nnoremap gr :GoReferrers<cr>
 
+""" toggle comment with ctrl + /
+nmap <C-_> gc$
+vmap <C-_> gc
+
 " Autocmds
 
 augroup popups#cr
