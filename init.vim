@@ -130,7 +130,7 @@ let g:ale_go_golangci_lint_package = 1
 let g:ale_go_golangci_lint_options = '--fast'
 let g:ale_fixers = { 'go': ['goimports'] }
 let g:ale_fix_on_save = 1
-let g:ale_echo_cursor = 0
+let g:ale_echo_cursor = 1
 let g:ale_virtualtext_cursor = 1
 let g:ale_virtualtext_prefix = '▬▶  '
 highlight link ALEVirtualTextError        ErrorMsg
