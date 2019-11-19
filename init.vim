@@ -169,7 +169,6 @@ let g:vista#renderer#enable_icon = 0
 
 " Settings
 
-set autoread
 set iskeyword+=$,@,-
 set number
 set scrolloff=5
@@ -237,6 +236,15 @@ vmap <C-_> gc
 augroup popups#cr
   autocmd!
   autocmd VimEnter * inoremap <expr> <cr> ((pumvisible()) ? (deoplete#close_popup()) : ("\<cr>"))
+augroup END
+
+augroup reloading
+  autocmd!
+  " Reload file on focus
+  autocmd FocusGained * :checktime
+
+  " Read the file on focus/buffer enter
+  au FocusGained,BufEnter * :silent! !
 augroup END
 
 " Leader
