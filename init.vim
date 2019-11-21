@@ -188,6 +188,7 @@ set splitbelow
 set splitright
 set hidden
 set pumheight=20
+set spell spelllang=en_uk
 
 " Mappings
 
