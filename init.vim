@@ -34,6 +34,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'hashivim/vim-terraform'
 Plug 'zhimsel/vim-stay'
 Plug 'liuchengxu/vista.vim'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
