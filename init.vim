@@ -50,6 +50,7 @@ let g:go_fmt_autosave = 0
 let g:go_info_mode='gopls'
 let g:go_doc_popup_window = 1
 let g:go_bin_path = $HOME . '/.local/share/nvim/go/bin'
+let $PATH = $PATH . ':' . g:go_bin_path
 
 let g:go_highlight_array_whitespace_error = 1
 let g:go_highlight_chan_whitespace_error = 1
