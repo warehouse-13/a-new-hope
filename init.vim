@@ -189,7 +189,11 @@ set splitbelow
 set splitright
 set hidden
 set pumheight=20
-set spell spelllang=en_gb
+
+augroup config#spell
+  autocmd!
+  autocmd FileType markdown setlocal spell spelllang=en_gb
+augroup END
 
 " Mappings
 
