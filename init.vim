@@ -35,6 +35,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'zhimsel/vim-stay'
 Plug 'liuchengxu/vista.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -237,6 +238,9 @@ nnoremap gr :GoReferrers<cr>
 """ toggle comment with ctrl + /
 nmap <C-_> gc$
 vmap <C-_> gc
+
+""" open tagbar
+nmap <F8> :TagbarToggle<CR>
 
 " Autocmds
 
