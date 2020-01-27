@@ -51,6 +51,7 @@ let g:go_fmt_autosave = 0
 let g:go_info_mode='gopls'
 let g:go_doc_popup_window = 1
 let g:go_bin_path = $HOME . '/.local/share/nvim/go/bin'
+let g:go_gorename_command = "gopls"
 let $PATH = $PATH . ':' . g:go_bin_path
 
 let g:go_highlight_array_whitespace_error = 1
@@ -284,5 +285,5 @@ nnoremap <silent> <leader>sg :execute 'Rg ' . input('Search for --> ')<CR>
 nnoremap <silent> <leader>sw :execute 'Rg' expand('<cword>')<CR>
 let g:lmap.l = { 'name': 'Golang' }
 nnoremap <silent> <leader>lt :Vista!!<cr>
-nnoremap <silent> <leader>lr :ALERename<cr>
+nnoremap <silent> <leader>lr :GoRename<cr>
 let g:lmap.g = { 'name': 'GitHub' }
