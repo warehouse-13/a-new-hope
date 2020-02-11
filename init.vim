@@ -49,6 +49,7 @@ colorscheme onedark
 """ vim-go
 let g:go_fmt_autosave = 0
 let g:go_info_mode='gopls'
+let g:go_auto_type_info = 1
 let g:go_doc_popup_window = 1
 let g:go_bin_path = $HOME . '/.local/share/nvim/go/bin'
 let g:go_rename_command = "gopls"
