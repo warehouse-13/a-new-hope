@@ -194,7 +194,7 @@ set pumheight=20
 
 augroup config#spell
   autocmd!
-  autocmd FileType markdown setlocal spell spelllang=en_gb
+  autocmd FileType markdown,gitcommit setlocal spell spelllang=en_gb
 augroup END
 
 " Mappings
