@@ -48,6 +48,7 @@ colorscheme onedark
 
 """ vim-go
 let g:go_fmt_autosave = 0
+let g:go_fmt_experimental = 1
 let g:go_info_mode='gopls'
 let g:go_auto_type_info = 1
 let g:go_doc_popup_window = 1
@@ -62,7 +63,6 @@ let g:go_highlight_space_tab_error = 1
 let g:go_highlight_trailing_whitespace_error = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
-let g:go_highlight_function_parameters = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
@@ -258,6 +258,15 @@ augroup reloading
 
   " Read the file on focus/buffer enter
   au FocusGained,BufEnter * :silent! !
+augroup END
+
+function! init#buffcommands()
+  setlocal foldmethod=syntax shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
+endfunction
+
+augroup go_stuff
+  autocmd!
+  autocmd! BufEnter *.go call init#buffcommands()
 augroup END
 
 " Leader
