@@ -32,7 +32,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'SirVer/ultisnips'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'hashivim/vim-terraform'
-Plug 'zhimsel/vim-stay'
+Plug 'kopischke/vim-stay'
 Plug 'liuchengxu/vista.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
@@ -246,6 +246,15 @@ nmap <F8> :TagbarToggle<CR>
 
 " Autocmds
 
+function! init#gobufcommands()
+  setlocal foldmethod=syntax shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
+endfunction
+
+augroup go_stuff
+  autocmd!
+  autocmd! BufRead,BufNewFile *.go call init#gobufcommands()
+augroup END
+
 augroup popups#cr
   autocmd!
   autocmd VimEnter * inoremap <expr> <cr> ((pumvisible()) ? (deoplete#close_popup()) : ("\<cr>"))
@@ -258,15 +267,6 @@ augroup reloading
 
   " Read the file on focus/buffer enter
   au FocusGained,BufEnter * :silent! !
-augroup END
-
-function! init#buffcommands()
-  setlocal foldmethod=syntax shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
-endfunction
-
-augroup go_stuff
-  autocmd!
-  autocmd! BufEnter *.go call init#buffcommands()
 augroup END
 
 " Leader
@@ -290,10 +290,12 @@ nnoremap <silent> <leader>ff :FZFFiles<cr>
 nnoremap <silent> <leader>fo :FZFBuffers<cr>
 nnoremap <silent> <leader>fm :FZFHistory<cr>
 let g:lmap.s = { 'name': 'Search' }
-nnoremap <silent> <leader>sg :execute 'Rg ' . input('Search for --> ')<CR>
-" Search the word under the cursor
-nnoremap <silent> <leader>sw :execute 'Rg' expand('<cword>')<CR>
+nnoremap <silent> <leader>sg :Grepper -tool rg<cr>
 let g:lmap.l = { 'name': 'Golang' }
 nnoremap <silent> <leader>lt :Vista!!<cr>
 nnoremap <silent> <leader>lr :GoRename<cr>
 let g:lmap.g = { 'name': 'GitHub' }
+
+" folds
+set foldlevel=99
+set foldlevelstart=99
