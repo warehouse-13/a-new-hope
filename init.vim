@@ -290,7 +290,9 @@ nnoremap <silent> <leader>ff :FZFFiles<cr>
 nnoremap <silent> <leader>fo :FZFBuffers<cr>
 nnoremap <silent> <leader>fm :FZFHistory<cr>
 let g:lmap.s = { 'name': 'Search' }
-nnoremap <silent> <leader>sg :Grepper -tool rg<cr>
+nnoremap <silent> <leader>sg :execute 'Rg ' . input('Search for --> ')<CR>
+" Search the word under the cursor
+nnoremap <silent> <leader>sw :execute 'Rg' expand('<cword>')<CR>
 let g:lmap.l = { 'name': 'Golang' }
 nnoremap <silent> <leader>lt :Vista!!<cr>
 nnoremap <silent> <leader>lr :GoRename<cr>
