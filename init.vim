@@ -36,6 +36,7 @@ Plug 'zhimsel/vim-stay'
 Plug 'liuchengxu/vista.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
+Plug 'mhinz/vim-grepper'
 
 call plug#end()
 
@@ -290,6 +291,7 @@ nnoremap <silent> <leader>ff :FZFFiles<cr>
 nnoremap <silent> <leader>fo :FZFBuffers<cr>
 nnoremap <silent> <leader>fm :FZFHistory<cr>
 let g:lmap.s = { 'name': 'Search' }
+nnoremap <silent> <leader>ss :Grepper -tool rg<cr>
 nnoremap <silent> <leader>sg :execute 'Rg ' . input('Search for --> ')<CR>
 " Search the word under the cursor
 nnoremap <silent> <leader>sw :execute 'Rg' expand('<cword>')<CR>
