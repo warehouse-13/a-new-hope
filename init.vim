@@ -19,7 +19,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'joshdick/onedark.vim'
 Plug 'mhinz/vim-startify'
 Plug 'hecal3/vim-leader-guide'
 Plug 'benmills/vimux'
@@ -37,13 +36,17 @@ Plug 'liuchengxu/vista.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-grepper'
+Plug 'arzg/vim-corvine'
+Plug 'scwood/vim-hybrid'
 
 call plug#end()
 
 " Colour scheme
 
 set termguicolors
-colorscheme onedark
+set background=dark
+colorscheme hybrid
+let g:airline_theme='hybrid'
 
 " Plugins
 
@@ -136,7 +139,11 @@ let g:ale_fixers = { 'go': ['goimports'] }
 let g:ale_fix_on_save = 1
 let g:ale_echo_cursor = 1
 let g:ale_virtualtext_cursor = 1
-let g:ale_virtualtext_prefix = '▬▶  '
+let g:ale_virtualtext_prefix = '  >>  '
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save = 1
 highlight link ALEVirtualTextError        ErrorMsg
 highlight link ALEVirtualTextStyleError   ALEVirtualTextError
 highlight link ALEVirtualTextWarning      WarningMsg
@@ -180,6 +187,7 @@ set showmatch
 set matchtime=1
 set inccommand=nosplit
 set cursorline
+set colorcolumn=80
 set mouse=a
 set undofile
 set shiftwidth=2
@@ -191,11 +199,21 @@ set splitbelow
 set splitright
 set hidden
 set pumheight=20
+set nowrap
+set noswapfile
 
 augroup config#spell
   autocmd!
   autocmd FileType markdown,gitcommit setlocal spell spelllang=en_gb
 augroup END
+
+" spelling
+hi clear SpellBad
+hi clear SpellCap
+hi clear SpellRare
+hi clear SpellLocal
+hi SpellBad cterm=underline
+hi SpellBad gui=undercurl
 
 " Mappings
 
@@ -214,14 +232,11 @@ vnoremap Y "+y
 """ nerdtree
 nnoremap <silent> \ :NERDTreeToggle<cr>
 nnoremap <silent> \| :NERDTreeFind<cr>
+let NERDTreeShowHidden=1
 
 """ navigate through errors
 nmap <silent> <M-p> <Plug>(ale_previous_wrap)
 nmap <silent> <M-n> <Plug>(ale_next_wrap)
-
-""" mnitchev
-inoremap ;; <Esc>
-vnoremap ;; <Esc>
 
 """ complete with tab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -237,12 +252,22 @@ nnoremap gy :GoDefType<cr>
 nnoremap gi :GoImplements<cr>
 nnoremap gr :GoReferrers<cr>
 
-""" toggle comment with ctrl + /
-nmap <C-_> gc$
-vmap <C-_> gc
+""" toggle comments
+nmap ,. gc$
+vmap ,. gc
 
 """ open tagbar
 nmap <F8> :TagbarToggle<CR>
+
+""" toggle to previous file
+nnoremap ,, <c-^>
+
+""" list all open buffers
+nnoremap <silent> ,b :FZFBuffers<cr>
+
+""" use ctrl-a and ctrl-e to jump to start/end of line in insert mode
+imap <C-a> <ESC>^i
+imap <C-e> <ESC>$a
 
 " Autocmds
 
