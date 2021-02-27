@@ -38,6 +38,7 @@ Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-grepper'
 Plug 'arzg/vim-corvine'
 Plug 'scwood/vim-hybrid'
+Plug 'tpope/vim-vinegar'
 
 call plug#end()
 
