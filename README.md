@@ -1,3 +1,9 @@
+> For linux you can just run
+> ```bash
+> curl -s https://raw.githubusercontent.com/masters-of-cats/a-new-hope/main/install.sh | bash -s
+> ```
+> if you like.
+
 ### Install required packages
 
 #### Mac
