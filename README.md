@@ -1,6 +1,6 @@
 > For linux you can just run
 > ```bash
-> curl -s https://raw.githubusercontent.com/masters-of-cats/a-new-hope/main/install.sh | bash -s
+> curl -s https://raw.githubusercontent.com/warehouse-13/a-new-hope/main/install.sh | bash -s
 > ```
 > if you like.
 
@@ -25,7 +25,7 @@ pip3 install neovim --user
 ### Clone the repo
 
 ```sh
-git clone https://github.com/masters-of-cats/a-new-hope ~/.config/nvim
+git clone https://github.com/warehouse-13/a-new-hope ~/.config/nvim
 ```
 
 ### Install the plugins and binaries
