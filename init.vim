@@ -39,6 +39,9 @@ Plug 'mhinz/vim-grepper'
 Plug 'arzg/vim-corvine'
 Plug 'scwood/vim-hybrid'
 Plug 'tpope/vim-vinegar'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'sebdah/vim-delve'
 
 call plug#end()
 
