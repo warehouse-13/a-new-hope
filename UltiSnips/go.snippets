@@ -60,6 +60,14 @@ snippet exto "Gomega Expect(...).To(...)" b
 Expect(${1:actual}).To(${0:${VISUAL}})
 endsnippet
 
+snippet extoe "Gomega Expect(...).To(...)" b
+Expect(${1:actual}).To(Equal(${0:${VISUAL}}))
+endsnippet
+
+snippet gextoe "Gomega Expect(...).To(...)" b
+g.Expect(${1:actual}).To(Equal(${0:${VISUAL}}))
+endsnippet
+
 snippet exnt "Gomega Expect(...).NotTo(...)" b
 Expect(${1:actual}).NotTo(${0:${VISUAL}})
 endsnippet
@@ -72,8 +80,16 @@ snippet exeo "Gomega Expect(err).To(HaveOccurred())" b
 Expect(err).To(HaveOccurred())
 endsnippet
 
+snippet gexeo "Gomega Expect(err).To(HaveOccurred())" b
+g.Expect(err).To(HaveOccurred())
+endsnippet
+
 snippet exen "Gomega Expect(err).NotTo(HaveOccurred())" b
 Expect(err).NotTo(HaveOccurred())
+endsnippet
+
+snippet gexen "Gomega Expect(err).NotTo(HaveOccurred())" b
+g.Expect(err).NotTo(HaveOccurred())
 endsnippet
 
 # vim:ft=snippets:
