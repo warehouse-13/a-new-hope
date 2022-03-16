@@ -136,7 +136,7 @@ let g:ale_sign_warning = '⚠'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 let g:ale_sign_column_always = 1
-let g:ale_linters = { 'go': ['golangci-lint', 'gopls'] }
+let g:ale_linters = { 'go': ['golangci-lint', 'gopls', 'pyright', 'pylint'] }
 let g:ale_go_golangci_lint_package = 1
 let g:ale_go_golangci_lint_options = '--fast'
 let g:ale_fixers = { 'go': ['goimports'] }
