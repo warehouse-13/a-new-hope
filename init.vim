@@ -84,7 +84,7 @@ let g:go_highlight_variable_declarations = 1
 let g:deoplete#enable_at_startup = 1
 
 """ vim-startify
-let g:startify_custom_header = map(systemlist('fortune | grootsay'), '"               ". v:val')
+let g:startify_custom_header = map(systemlist('fortune | cowsay'), '"               ". v:val')
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 0
 let g:startify_lists = [
