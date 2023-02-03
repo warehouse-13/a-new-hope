@@ -205,6 +205,7 @@ set hidden
 set pumheight=20
 set nowrap
 set noswapfile
+set textwidth=80
 
 augroup config#spell
   autocmd!
