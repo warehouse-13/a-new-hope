@@ -33,7 +33,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'hashivim/vim-terraform'
 Plug 'zhimsel/vim-stay'
 Plug 'liuchengxu/vista.vim'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-grepper'
 Plug 'arzg/vim-corvine'
@@ -42,6 +42,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sebdah/vim-delve'
+Plug 'jjo/vim-cue'
 
 call plug#end()
 
